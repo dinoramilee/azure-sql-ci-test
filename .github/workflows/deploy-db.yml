@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run SQL script on Azure SQL
-        uses: Azure/sqlserver-sql-action@v1.1
+      - name: Deploy SQL script to Azure
+        uses: azure/sql-action@v1
         with:
           connection-string: ${{ secrets.AZURE_SQL_CONN }}
           path: ./sql-scripts/init.sql
