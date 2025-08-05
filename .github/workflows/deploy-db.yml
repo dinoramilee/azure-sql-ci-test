@@ -16,4 +16,4 @@ jobs:
         uses: Azure/sql-action@v2
         with:
           connection-string: ${{ secrets.AZURE_SQL_CONN }}
-          script-path: ./sql-scripts/init.sql
+          path: ./sql-scripts/init.sql
