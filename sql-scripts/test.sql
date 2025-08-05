@@ -1,1 +1,0 @@
-"CREATE TABLE TestTable2 (id INT PRIMARY KEY, name NVARCHAR(100));" 
