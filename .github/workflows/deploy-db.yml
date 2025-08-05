@@ -1,24 +1,25 @@
-name: Deploy SQL script to Azure SQL
+name: Deploy SQL script to Azure
 
 on:
   push:
-    branches: [master]  # 또는 main
+    branches:
+      - master  # 또는 main 브랜치 이름에 따라 수정
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-           creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Run SQL Script
-        uses: Azure/sql-action@v2
-        with:
-          connection-string: ${{ secrets.AZURE_SQL_CONN }}
-          path: ./sql-scripts/init.sql
+    - name: Run SQL Script
+      uses: Azure/sql-action@v2
+      with:
+        connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
+        path: ./sql-scripts/init.sql
